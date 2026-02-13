@@ -1,11 +1,15 @@
 /* ===== Teal Theme Color Palette =====
-   Main Background: #EBF4F6
-   Card Background: #FFFFFF
-   Header/Dark: #09637E
-   Primary Accent: #088395
-   Secondary Accent: #7AB2B2
-   Heading Text: #073642
+   Base Background: #EBF4F6
+   Card/Input Background: #FFFFFF
+   Accent 1 (Medium Teal): #7AB2B2
+   Accent 2 (Dark Teal): #088395
+   Accent 3 (Darkest Teal): #09637E
+   Heading Text: #09637E
    Body Text: #4A5568
+   Error Background: #FBEAEA
+   Error Border: #E57373
+   Error Text: #C62828
+   Delete Button: #F07167
 ===================================== */
 
 * {
@@ -19,12 +23,14 @@ body {
   background: #EBF4F6;
   color: #4A5568;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 16px;
+  width: 100%;
 }
 
 h1 {
@@ -36,7 +42,7 @@ h1 {
 h2 {
   font-size: 1.2rem;
   margin: 20px 0 12px;
-  color: #073642;
+  color: #09637E;
 }
 
 h3 {
@@ -49,7 +55,7 @@ h3 {
   padding: 20px;
   margin-bottom: 16px;
   box-shadow: 0 2px 12px rgba(9, 99, 126, 0.08);
-  border: 1px solid rgba(122, 178, 178, 0.2);
+  border: 1px solid rgba(122, 178, 178, 0.15);
 }
 
 .form-group {
@@ -64,26 +70,86 @@ label {
   color: #09637E;
 }
 
+/* Input fields - Normal state */
 input[type="text"],
 input[type="date"],
 input[type="time"],
 input[type="number"],
-input[type="password"],
-select {
+input[type="password"] {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid rgba(122, 178, 178, 0.4);
+  border: 1px solid #D0E0E6;
   border-radius: 12px;
   font-size: 16px;
   background: #FFFFFF;
-  color: #073642;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  color: #09637E;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
 
-input:focus, select:focus {
+input:focus {
   outline: none;
   border-color: #088395;
   box-shadow: 0 0 0 3px rgba(8, 131, 149, 0.1);
+}
+
+/* Input fields - Error state */
+input.error,
+input:invalid:not(:placeholder-shown) {
+  background-color: #FBEAEA;
+  border-color: #E57373;
+  color: #C62828;
+}
+
+input.error:focus {
+  box-shadow: 0 0 0 3px rgba(229, 115, 115, 0.2);
+}
+
+/* Regular select (default) */
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #D0E0E6;
+  border-radius: 12px;
+  font-size: 16px;
+  background: #FFFFFF;
+  color: #09637E;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2309637E' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+select:focus {
+  outline: none;
+  border-color: #088395;
+  box-shadow: 0 0 0 3px rgba(8, 131, 149, 0.1);
+}
+
+/* Level select - Medium Teal (#7AB2B2) */
+select.select-level {
+  background-color: #7AB2B2;
+  color: #FFFFFF;
+  border: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23FFFFFF' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+}
+
+select.select-level:focus {
+  box-shadow: 0 0 0 3px rgba(122, 178, 178, 0.3);
+}
+
+/* Rules select - Dark Teal (#088395) */
+select.select-rules {
+  background-color: #088395;
+  color: #FFFFFF;
+  border: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23FFFFFF' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+}
+
+select.select-rules:focus {
+  box-shadow: 0 0 0 3px rgba(8, 131, 149, 0.3);
 }
 
 .row {
@@ -93,8 +159,10 @@ input:focus, select:focus {
 
 .row > * {
   flex: 1;
+  min-width: 0;
 }
 
+/* Buttons */
 .btn {
   display: inline-block;
   padding: 12px 24px;
@@ -104,6 +172,7 @@ input:focus, select:focus {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
@@ -128,15 +197,17 @@ input:focus, select:focus {
   border-color: #088395;
 }
 
+/* Delete button - Coral red */
 .btn-danger {
-  background: #FFFFFF;
-  color: #dc3545;
-  border: 2px solid #dc3545;
+  background: #F07167;
+  color: #FFFFFF;
+  border: none;
 }
 
 .btn-danger:hover {
-  background: #dc3545;
-  color: #FFFFFF;
+  background: #D85B52;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(240, 113, 103, 0.3);
 }
 
 .btn-sm {
@@ -154,22 +225,23 @@ input:focus, select:focus {
   display: flex;
   gap: 8px;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   flex-wrap: wrap;
 }
 
 .participant-row input {
   flex: 2;
-  min-width: 120px;
+  min-width: 100px;
 }
 
 .participant-row select {
   flex: 1;
-  min-width: 80px;
+  min-width: 70px;
 }
 
 .participant-row .btn {
   flex-shrink: 0;
+  padding: 10px 12px;
 }
 
 /* Checkbox/Radio */
@@ -184,7 +256,7 @@ input:focus, select:focus {
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  color: #073642;
+  color: #09637E;
 }
 
 .checkbox-label input, .radio-label input {
@@ -218,7 +290,7 @@ input:focus, select:focus {
   margin-bottom: 16px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(9, 99, 126, 0.08);
-  border: 1px solid rgba(122, 178, 178, 0.2);
+  border: 1px solid rgba(122, 178, 178, 0.15);
 }
 
 .round-header {
@@ -230,7 +302,7 @@ input:focus, select:focus {
 
 .match-item {
   padding: 14px 18px;
-  border-bottom: 1px solid rgba(122, 178, 178, 0.2);
+  border-bottom: 1px solid rgba(122, 178, 178, 0.15);
 }
 
 .match-item:last-child {
@@ -260,6 +332,8 @@ input:focus, select:focus {
   display: flex;
   gap: 6px;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .player {
@@ -346,9 +420,17 @@ input:focus, select:focus {
 }
 
 .error {
-  color: #dc3545;
+  color: #C62828;
   font-size: 0.9rem;
   margin-top: 8px;
+}
+
+.error-box {
+  background: #FBEAEA;
+  border: 1px solid #E57373;
+  border-radius: 12px;
+  padding: 14px;
+  color: #C62828;
 }
 
 .success-box {
@@ -376,13 +458,13 @@ input:focus, select:focus {
 }
 
 .level-beginner {
-  background: rgba(122, 178, 178, 0.25);
+  background: rgba(122, 178, 178, 0.3);
   color: #09637E;
 }
 
 .level-intermediate {
-  background: rgba(8, 131, 149, 0.2);
-  color: #09637E;
+  background: #7AB2B2;
+  color: #FFFFFF;
 }
 
 .level-advanced {
@@ -401,19 +483,30 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Responsive */
+/* Responsive - Mobile */
 @media (max-width: 600px) {
+  .container {
+    padding: 12px;
+  }
+  
   .row {
     flex-direction: column;
+    gap: 8px;
   }
   
   .participant-row {
     flex-direction: column;
     align-items: stretch;
+    gap: 8px;
   }
   
   .participant-row input,
   .participant-row select {
+    width: 100%;
+    min-width: unset;
+  }
+  
+  .participant-row .btn {
     width: 100%;
   }
   
@@ -424,6 +517,51 @@ a:hover {
   
   .event-header {
     border-radius: 14px;
+    padding: 20px 16px;
+  }
+  
+  .btn {
+    padding: 14px 20px;
+    width: 100%;
+  }
+  
+  .btn-sm {
+    padding: 10px 14px;
+  }
+  
+  .modal {
+    margin: 12px;
     padding: 20px;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .modal-actions .btn {
+    width: 100%;
+  }
+  
+  .match-teams {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .team {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .filter-bar select {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  h1 {
+    font-size: 1.3rem;
+  }
+  
+  h2 {
+    font-size: 1.1rem;
   }
 }

@@ -174,12 +174,12 @@ export default function EditEvent() {
         {participants.map((p, i) => (
           <div key={i} className="participant-row">
             <input type="text" value={p.name} onChange={e => updateParticipant(i, 'name', e.target.value)} placeholder="名前" />
-            <select value={p.level} onChange={e => updateParticipant(i, 'level', e.target.value as any)}>
+            <select className="select-level" value={p.level} onChange={e => updateParticipant(i, 'level', e.target.value as any)}>
               <option value="beginner">初級</option>
               <option value="intermediate">中級</option>
               <option value="advanced">上級</option>
             </select>
-            <select value={p.ruleUnderstanding} onChange={e => updateParticipant(i, 'ruleUnderstanding', e.target.value as any)}>
+            <select className="select-rules" value={p.ruleUnderstanding} onChange={e => updateParticipant(i, 'ruleUnderstanding', e.target.value as any)}>
               <option value="knows">ルール分かる</option>
               <option value="newbie">ほぼ初めて</option>
             </select>
