@@ -1,0 +1,476 @@
+{
+  "events": {
+    "rKLS5sXNpq": {
+      "id": "rKLS5sXNpq",
+      "name": "RCPGピックル大会",
+      "date": "2026-02-14",
+      "startTime": "19:00",
+      "endTime": "21:00",
+      "matchDuration": 10,
+      "breakDuration": 5,
+      "courtCount": 1,
+      "pinHash": "1477632",
+      "pairVariation": true,
+      "opponentVariation": true,
+      "levelMatching": true,
+      "participants": [
+        {
+          "id": 1,
+          "name": "今野",
+          "level": "intermediate",
+          "ruleUnderstanding": "knows"
+        },
+        {
+          "id": 2,
+          "name": "戸塚",
+          "level": "intermediate",
+          "ruleUnderstanding": "knows"
+        },
+        {
+          "id": 3,
+          "name": "阿部",
+          "level": "intermediate",
+          "ruleUnderstanding": "knows"
+        },
+        {
+          "id": 4,
+          "name": "清水",
+          "level": "intermediate",
+          "ruleUnderstanding": "knows"
+        },
+        {
+          "id": 5,
+          "name": "高橋",
+          "level": "intermediate",
+          "ruleUnderstanding": "knows"
+        },
+        {
+          "id": 6,
+          "name": "小川",
+          "level": "intermediate",
+          "ruleUnderstanding": "knows"
+        }
+      ],
+      "schedule": [
+        {
+          "roundNumber": 1,
+          "startTime": "19:00",
+          "endTime": "19:10",
+          "matches": [
+            {
+              "court": 1,
+              "team1": [
+                {
+                  "id": 2,
+                  "name": "戸塚",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 6,
+                  "name": "小川",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ],
+              "team2": [
+                {
+                  "id": 1,
+                  "name": "今野",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 4,
+                  "name": "清水",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ]
+            }
+          ],
+          "resting": [
+            {
+              "id": 5,
+              "name": "高橋",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            },
+            {
+              "id": 3,
+              "name": "阿部",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            }
+          ]
+        },
+        {
+          "roundNumber": 2,
+          "startTime": "19:15",
+          "endTime": "19:25",
+          "matches": [
+            {
+              "court": 1,
+              "team1": [
+                {
+                  "id": 4,
+                  "name": "清水",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 2,
+                  "name": "戸塚",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ],
+              "team2": [
+                {
+                  "id": 3,
+                  "name": "阿部",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 5,
+                  "name": "高橋",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ]
+            }
+          ],
+          "resting": [
+            {
+              "id": 1,
+              "name": "今野",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            },
+            {
+              "id": 6,
+              "name": "小川",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            }
+          ]
+        },
+        {
+          "roundNumber": 3,
+          "startTime": "19:30",
+          "endTime": "19:40",
+          "matches": [
+            {
+              "court": 1,
+              "team1": [
+                {
+                  "id": 2,
+                  "name": "戸塚",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 1,
+                  "name": "今野",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ],
+              "team2": [
+                {
+                  "id": 4,
+                  "name": "清水",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 6,
+                  "name": "小川",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ]
+            }
+          ],
+          "resting": [
+            {
+              "id": 5,
+              "name": "高橋",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            },
+            {
+              "id": 3,
+              "name": "阿部",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            }
+          ]
+        },
+        {
+          "roundNumber": 4,
+          "startTime": "19:45",
+          "endTime": "19:55",
+          "matches": [
+            {
+              "court": 1,
+              "team1": [
+                {
+                  "id": 3,
+                  "name": "阿部",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 1,
+                  "name": "今野",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ],
+              "team2": [
+                {
+                  "id": 4,
+                  "name": "清水",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 2,
+                  "name": "戸塚",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ]
+            }
+          ],
+          "resting": [
+            {
+              "id": 5,
+              "name": "高橋",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            },
+            {
+              "id": 6,
+              "name": "小川",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            }
+          ]
+        },
+        {
+          "roundNumber": 5,
+          "startTime": "20:00",
+          "endTime": "20:10",
+          "matches": [
+            {
+              "court": 1,
+              "team1": [
+                {
+                  "id": 3,
+                  "name": "阿部",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 4,
+                  "name": "清水",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ],
+              "team2": [
+                {
+                  "id": 1,
+                  "name": "今野",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 5,
+                  "name": "高橋",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ]
+            }
+          ],
+          "resting": [
+            {
+              "id": 6,
+              "name": "小川",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            },
+            {
+              "id": 2,
+              "name": "戸塚",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            }
+          ]
+        },
+        {
+          "roundNumber": 6,
+          "startTime": "20:15",
+          "endTime": "20:25",
+          "matches": [
+            {
+              "court": 1,
+              "team1": [
+                {
+                  "id": 4,
+                  "name": "清水",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 5,
+                  "name": "高橋",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ],
+              "team2": [
+                {
+                  "id": 2,
+                  "name": "戸塚",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 6,
+                  "name": "小川",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ]
+            }
+          ],
+          "resting": [
+            {
+              "id": 3,
+              "name": "阿部",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            },
+            {
+              "id": 1,
+              "name": "今野",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            }
+          ]
+        },
+        {
+          "roundNumber": 7,
+          "startTime": "20:30",
+          "endTime": "20:40",
+          "matches": [
+            {
+              "court": 1,
+              "team1": [
+                {
+                  "id": 6,
+                  "name": "小川",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 4,
+                  "name": "清水",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ],
+              "team2": [
+                {
+                  "id": 2,
+                  "name": "戸塚",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 3,
+                  "name": "阿部",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ]
+            }
+          ],
+          "resting": [
+            {
+              "id": 1,
+              "name": "今野",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            },
+            {
+              "id": 5,
+              "name": "高橋",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            }
+          ]
+        },
+        {
+          "roundNumber": 8,
+          "startTime": "20:45",
+          "endTime": "20:55",
+          "matches": [
+            {
+              "court": 1,
+              "team1": [
+                {
+                  "id": 3,
+                  "name": "阿部",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 6,
+                  "name": "小川",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ],
+              "team2": [
+                {
+                  "id": 2,
+                  "name": "戸塚",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                },
+                {
+                  "id": 4,
+                  "name": "清水",
+                  "level": "intermediate",
+                  "ruleUnderstanding": "knows"
+                }
+              ]
+            }
+          ],
+          "resting": [
+            {
+              "id": 1,
+              "name": "今野",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            },
+            {
+              "id": 5,
+              "name": "高橋",
+              "level": "intermediate",
+              "ruleUnderstanding": "knows"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2026-02-13T22:03:10.744Z"
+    }
+  },
+  "nextParticipantId": 7
+}
