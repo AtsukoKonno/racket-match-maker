@@ -19,6 +19,11 @@
   padding: 0;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: #EBF4F6;
@@ -32,6 +37,7 @@ body {
   margin: 0 auto;
   padding: 16px;
   width: 100%;
+  overflow-x: hidden;
 }
 
 /* Page title with decorative line */
@@ -259,20 +265,29 @@ select.select-rules:focus {
 .checkbox-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .checkbox-label, .radio-label {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   cursor: pointer;
   color: #09637E;
+  padding: 8px 0;
 }
 
-.checkbox-label input, .radio-label input {
-  width: auto;
+.checkbox-label input[type="checkbox"],
+.radio-label input[type="checkbox"],
+.checkbox-label input[type="radio"],
+.radio-label input[type="radio"] {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
   accent-color: #088395;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 /* Schedule view */
@@ -498,6 +513,7 @@ a:hover {
 @media (max-width: 600px) {
   .container {
     padding: 12px;
+    max-width: 100%;
   }
   
   .row {
@@ -509,12 +525,14 @@ a:hover {
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
+    width: 100%;
   }
   
   .participant-row input,
   .participant-row select {
     width: 100%;
     min-width: unset;
+    max-width: 100%;
   }
   
   .participant-row .btn {
@@ -524,6 +542,8 @@ a:hover {
   .card {
     border-radius: 14px;
     padding: 16px;
+    max-width: 100%;
+    overflow: hidden;
   }
   
   .event-header {
@@ -543,6 +563,7 @@ a:hover {
   .modal {
     margin: 12px;
     padding: 20px;
+    max-width: calc(100% - 24px);
   }
   
   .modal-actions {
@@ -574,5 +595,31 @@ a:hover {
   
   h2 {
     font-size: 1.1rem;
+  }
+  
+  /* Larger checkboxes for mobile touch */
+  .checkbox-label input[type="checkbox"],
+  .radio-label input[type="checkbox"],
+  .checkbox-label input[type="radio"],
+  .radio-label input[type="radio"] {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+  }
+  
+  .checkbox-label, .radio-label {
+    padding: 10px 0;
+    gap: 14px;
+  }
+  
+  /* Ensure form elements don't overflow */
+  input[type="text"],
+  input[type="date"],
+  input[type="time"],
+  input[type="number"],
+  input[type="password"],
+  select {
+    max-width: 100%;
   }
 }
