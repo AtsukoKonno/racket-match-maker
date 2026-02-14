@@ -242,8 +242,16 @@ select.select-rules:focus {
   display: flex;
   gap: 8px;
   align-items: center;
-  margin-bottom: 12px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
+  border-bottom: 1px solid rgba(122, 178, 178, 0.3);
+}
+
+.participant-row:last-of-type {
+  border-bottom: none;
+  margin-bottom: 8px;
+  padding-bottom: 0;
 }
 
 .participant-row input {
@@ -542,6 +550,7 @@ a:hover {
     width: 100%;
     min-width: unset;
     max-width: 100%;
+    box-sizing: border-box;
   }
   
   .participant-row .btn {
@@ -630,6 +639,19 @@ a:hover {
   input[type="password"],
   select {
     max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Fix date/time inputs on mobile */
+  .form-group {
+    width: 100%;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
