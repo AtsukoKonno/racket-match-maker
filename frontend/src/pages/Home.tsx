@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { EventSummary } from '../types';
 import { API_BASE_URL } from '../config';
+import Header from '../components/Header';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -40,8 +41,9 @@ export default function Home() {
   };
 
   return (
-    <div className="container">
-      <h1>Racket Match Maker</h1>
+    <>
+      <Header />
+      <div className="container">
       
       <div className="card">
         <h2>イベントに参加する</h2>
@@ -87,6 +89,7 @@ export default function Home() {
           イベントを作成
         </button>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

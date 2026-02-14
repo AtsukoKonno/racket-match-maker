@@ -623,3 +623,111 @@ a:hover {
     max-width: 100%;
   }
 }
+
+
+/* ===== App Header Banner ===== */
+.app-header {
+  background: linear-gradient(135deg, #09637E 0%, #088395 50%, #09637E 100%);
+  padding: 32px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border-radius: 0 0 24px 24px;
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.header-title {
+  font-family: 'Montserrat', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.header-subtitle {
+  font-family: 'Montserrat', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: rgba(235, 244, 246, 0.85);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+/* 抽象的な装飾シェイプ */
+.header-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.header-shape-1 {
+  width: 200px;
+  height: 200px;
+  background: #7AB2B2;
+  top: -80px;
+  right: -60px;
+}
+
+.header-shape-2 {
+  width: 120px;
+  height: 120px;
+  background: #EBF4F6;
+  bottom: -40px;
+  left: -30px;
+}
+
+.header-shape-3 {
+  width: 80px;
+  height: 80px;
+  background: #7AB2B2;
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%);
+}
+
+/* モバイル対応 */
+@media (max-width: 600px) {
+  .app-header {
+    padding: 24px 16px;
+    margin-bottom: 16px;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .header-title {
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .header-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .header-shape-1 {
+    width: 150px;
+    height: 150px;
+    top: -60px;
+    right: -40px;
+  }
+  
+  .header-shape-2 {
+    width: 80px;
+    height: 80px;
+    bottom: -30px;
+    left: -20px;
+  }
+  
+  .header-shape-3 {
+    width: 50px;
+    height: 50px;
+  }
+}
