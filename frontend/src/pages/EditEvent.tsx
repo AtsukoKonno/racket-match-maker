@@ -131,7 +131,7 @@ export default function EditEvent() {
 
   return (
     <div className="container">
-      <h1>🎾 イベント編集</h1>
+      <h1>イベント編集</h1>
       
       <div className="card">
         <h2>基本情報</h2>

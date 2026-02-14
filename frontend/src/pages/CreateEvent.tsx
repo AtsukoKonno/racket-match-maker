@@ -87,7 +87,7 @@ export default function CreateEvent() {
 
   return (
     <div className="container">
-      <h1>🎾 イベント作成</h1>
+      <h1>イベント作成</h1>
       
       <form onSubmit={handleSubmit}>
         <div className="card">
