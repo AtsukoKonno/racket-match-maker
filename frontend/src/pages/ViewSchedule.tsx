@@ -78,6 +78,11 @@ export default function ViewSchedule() {
         <h1>{event.name}</h1>
         <p>{event.date} {event.startTime}〜{event.endTime}</p>
         <p>コート数: {event.courtCount} / 参加者: {event.participants.length}名</p>
+        {event.code && (
+          <p style={{ marginTop: '8px', fontSize: '0.9rem', opacity: 0.9 }}>
+            イベントコード: <span style={{ fontFamily: 'monospace', letterSpacing: '0.1em', fontWeight: 'bold' }}>{event.code}</span>
+          </p>
+        )}
       </div>
 
       <div className="filter-bar">
@@ -148,6 +153,13 @@ export default function ViewSchedule() {
       <div className="text-center mt-2">
         <button className="btn btn-secondary" onClick={handleEditClick}>
           編集モードへ
+        </button>
+        <button 
+          className="btn btn-secondary" 
+          onClick={() => navigate('/')}
+          style={{ marginLeft: '12px' }}
+        >
+          トップに戻る
         </button>
       </div>
 

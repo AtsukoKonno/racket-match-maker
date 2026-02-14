@@ -15,6 +15,43 @@ function hashPin(pin: string): string {
   return hash.toString();
 }
 
+// 6桁英数字のイベントコードを生成
+function generateEventCode(): string {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // 紛らわしい文字を除外
+  let code = '';
+  for (let i = 0; i < 6; i++) {
+    code += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return code;
+}
+
+// イベントコードでイベントを検索
+router.get('/by-code/:code', (req: Request, res: Response) => {
+  try {
+    const code = (req.params.code as string).toUpperCase();
+    const event = db.getEventByCode(code);
+    
+    if (!event) {
+      res.status(404).json({ error: 'イベントが見つかりません' });
+      return;
+    }
+
+    res.json({
+      id: event.id,
+      code: event.code,
+      name: event.name,
+      date: event.date,
+      startTime: event.startTime,
+      endTime: event.endTime,
+      participantCount: event.participants.length,
+      hasSchedule: !!event.schedule
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'イベントの検索に失敗しました' });
+  }
+});
+
 // Create new event
 router.post('/', (req: Request, res: Response) => {
   try {
@@ -29,6 +66,7 @@ router.post('/', (req: Request, res: Response) => {
     }
 
     const eventId = nanoid(10);
+    const eventCode = generateEventCode();
     const pinHash = hashPin(pin);
 
     const participantRecords: ParticipantRecord[] = participants.map((p: any) => ({
@@ -40,6 +78,7 @@ router.post('/', (req: Request, res: Response) => {
 
     db.createEvent({
       id: eventId,
+      code: eventCode,
       name,
       date,
       startTime,
@@ -55,7 +94,7 @@ router.post('/', (req: Request, res: Response) => {
       schedule: null
     });
 
-    res.json({ eventId });
+    res.json({ eventId, eventCode });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'イベントの作成に失敗しました' });
@@ -74,6 +113,7 @@ router.get('/:id', (req: Request, res: Response) => {
 
     res.json({
       id: event.id,
+      code: event.code,
       name: event.name,
       date: event.date,
       startTime: event.startTime,
@@ -95,6 +135,42 @@ router.get('/:id', (req: Request, res: Response) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'イベントの取得に失敗しました' });
+  }
+});
+
+// 参加者を追加（イベントコードで参加する人用）
+router.post('/:id/participants', (req: Request, res: Response) => {
+  try {
+    const id = req.params.id as string;
+    const { name, level, ruleUnderstanding } = req.body;
+
+    const event = db.getEvent(id);
+    if (!event) {
+      res.status(404).json({ error: 'イベントが見つかりません' });
+      return;
+    }
+
+    if (!name || !name.trim()) {
+      res.status(400).json({ error: '名前を入力してください' });
+      return;
+    }
+
+    const participant: ParticipantRecord = {
+      id: db.getNextParticipantId(),
+      name: name.trim(),
+      level: level || 'intermediate',
+      ruleUnderstanding: ruleUnderstanding || 'knows'
+    };
+
+    const added = db.addParticipant(id, participant);
+    if (added) {
+      res.json({ success: true, participant: added });
+    } else {
+      res.status(500).json({ error: '参加者の追加に失敗しました' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: '参加者の追加に失敗しました' });
   }
 });
 

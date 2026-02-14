@@ -27,6 +27,9 @@ export default function CreateEvent() {
   const [levelMatching, setLevelMatching] = useState(true);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  
+  // イベント作成完了後の状態
+  const [createdEvent, setCreatedEvent] = useState<{ eventId: string; eventCode: string } | null>(null);
 
   const addParticipant = () => {
     setParticipants([...participants, emptyParticipant()]);
@@ -77,13 +80,80 @@ export default function CreateEvent() {
         body: JSON.stringify({ pin })
       });
       
-      navigate(`/event/${data.eventId}`);
+      // イベントコードを表示
+      setCreatedEvent({ eventId: data.eventId, eventCode: data.eventCode });
     } catch (err: any) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
   };
+
+  // イベント作成完了画面
+  if (createdEvent) {
+    const shareUrl = `${window.location.origin}/event/${createdEvent.eventId}`;
+    return (
+      <div className="container">
+        <h1>イベント作成完了</h1>
+        
+        <div className="card">
+          <div className="success-box" style={{ textAlign: 'center', marginBottom: '20px' }}>
+            <p style={{ marginBottom: '16px' }}>イベントが作成されました！</p>
+            <p style={{ fontSize: '0.9rem', color: '#4A5568' }}>
+              参加者にイベントコードを共有してください
+            </p>
+          </div>
+          
+          <div style={{ 
+            background: '#09637E', 
+            color: '#FFFFFF', 
+            padding: '24px', 
+            borderRadius: '12px',
+            textAlign: 'center',
+            marginBottom: '20px'
+          }}>
+            <p style={{ fontSize: '0.9rem', marginBottom: '8px', opacity: 0.8 }}>イベントコード</p>
+            <p style={{ 
+              fontSize: '2.5rem', 
+              fontWeight: 'bold', 
+              letterSpacing: '0.3em',
+              fontFamily: 'monospace'
+            }}>
+              {createdEvent.eventCode}
+            </p>
+          </div>
+
+          <div className="form-group">
+            <label>共有用URL</label>
+            <input 
+              type="text" 
+              value={shareUrl} 
+              readOnly 
+              onClick={(e) => (e.target as HTMLInputElement).select()}
+              style={{ cursor: 'pointer' }}
+            />
+            <p style={{ fontSize: '0.85rem', color: '#7AB2B2', marginTop: '4px' }}>
+              クリックして選択 → コピーして共有できます
+            </p>
+          </div>
+        </div>
+
+        <button 
+          className="btn btn-primary btn-block"
+          onClick={() => navigate(`/event/${createdEvent.eventId}`)}
+        >
+          スケジュールを確認する
+        </button>
+        
+        <button 
+          className="btn btn-secondary btn-block mt-2"
+          onClick={() => navigate('/')}
+        >
+          トップに戻る
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="container">

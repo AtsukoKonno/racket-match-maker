@@ -21,6 +21,7 @@ export interface Round {
 
 export interface EventData {
   id: string;
+  code?: string; // イベントコード
   name: string;
   date: string;
   startTime: string;
@@ -33,4 +34,15 @@ export interface EventData {
   levelMatching: boolean;
   participants: Participant[];
   schedule: Round[] | null;
+}
+
+export interface EventSummary {
+  id: string;
+  code: string;
+  name: string;
+  date: string;
+  startTime: string;
+  endTime: string;
+  participantCount: number;
+  hasSchedule: boolean;
 }

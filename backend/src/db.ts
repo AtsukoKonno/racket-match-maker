@@ -7,6 +7,7 @@ const DATA_FILE = path.join(__dirname, '..', 'data.json');
 
 export interface EventRecord {
   id: string;
+  code: string; // 6桁英数字のイベントコード
   name: string;
   date: string;
   startTime: string;
@@ -56,6 +57,11 @@ export const db = {
     return data.events[id];
   },
 
+  getEventByCode(code: string): EventRecord | undefined {
+    const data = loadDb();
+    return Object.values(data.events).find(e => e.code === code.toUpperCase());
+  },
+
   createEvent(event: Omit<EventRecord, 'createdAt'>): void {
     const data = loadDb();
     data.events[event.id] = { ...event, createdAt: new Date().toISOString() };
@@ -68,6 +74,17 @@ export const db = {
       data.events[id] = { ...data.events[id], ...updates };
       saveDb(data);
     }
+  },
+
+  addParticipant(id: string, participant: ParticipantRecord): ParticipantRecord | null {
+    const data = loadDb();
+    if (data.events[id]) {
+      data.events[id].participants.push(participant);
+      data.events[id].schedule = null; // スケジュールをリセット
+      saveDb(data);
+      return participant;
+    }
+    return null;
   },
 
   getNextParticipantId(): number {
