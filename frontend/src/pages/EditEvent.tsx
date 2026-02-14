@@ -183,8 +183,10 @@ export default function EditEvent() {
               <option value="knows">ルール分かる</option>
               <option value="newbie">ほぼ初めて</option>
             </select>
-            {i >= 4 && (
+            {i >= 4 ? (
               <button type="button" className="btn btn-danger btn-sm" onClick={() => removeParticipant(i)}>削除</button>
+            ) : (
+              <span className="delete-spacer" />
             )}
           </div>
         ))}
